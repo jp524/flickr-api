@@ -5,3 +5,9 @@
   <%= form.text_field :flickr_user_id %>
   <%= form.submit 'Search' %>
 <% end %>
+
+<% if params[:commit] %>
+  <% @user_photos.each do |photo| %>
+    <img src="<%="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}"%>.jpg">
+  <% end %>
+<% end %>
