@@ -6,8 +6,12 @@
   <%= form.submit 'Search' %>
 <% end %>
 
-<% if params[:commit] %>
+<% if params[:commit] && !@user_photos.nil?%>
   <% @user_photos.each do |photo| %>
     <img src="<%="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}"%>.jpg">
   <% end %>
+<% end %>
+
+<% if params[:commit] && @error_msg %>
+  <%= @error_msg %>
 <% end %>
